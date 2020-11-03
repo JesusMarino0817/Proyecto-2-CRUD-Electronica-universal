@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ComprobanteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/inicio', function () {
+  return view('inicio');
+});
+
+Route::get('/bienvenida/{nombre}/{apellido?}', function($nombre, $apellido = null) {
+  return view('bienvenida', compact('nombre', 'apellido'));
+})->name('bienvenida');
+
+Route::resource('comprobante', ComprobanteController::class);

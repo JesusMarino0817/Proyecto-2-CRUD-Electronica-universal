@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateComprobanteTable extends Migration
+class CreateComprobantesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateComprobanteTable extends Migration
      */
     public function up()
     {
-        Schema::create('comprobante', function (Blueprint $table) {
+        Schema::create('comprobantes', function (Blueprint $table) {
             $table->id();
             $table->string('categoria');
             $table->string('nombre_cliente');
@@ -32,6 +32,6 @@ class CreateComprobanteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comprobante');
+        Schema::dropIfExists('comprobantes');
     }
 }
