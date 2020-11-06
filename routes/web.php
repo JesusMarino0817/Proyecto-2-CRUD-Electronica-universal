@@ -22,6 +22,18 @@ Route::get('/inicio', function () {
   return view('inicio');
 });
 
+Route::get('/articulos1', function () {
+  return view('articulos1');
+});
+
+Route::get('/articulos2', function () {
+  return view('articulos2');
+});
+
+Route::get('/articulos3', function () {
+  return view('articulos3');
+});
+
 Route::get('/bienvenida/{nombre}/{apellido?}', function($nombre, $apellido = null) {
   return view('bienvenida', compact('nombre', 'apellido'));
 })->name('bienvenida');

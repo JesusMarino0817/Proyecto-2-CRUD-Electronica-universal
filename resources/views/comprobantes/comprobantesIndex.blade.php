@@ -3,15 +3,13 @@
 
 @section('contenido')
 
-		<h1>Lista de comprobantes</h1>
-		
-		 <form action="{{ route('comprobante.create') }}">
-   		 <button type="submit">Crear Comprobante</button>
-   		 </form>
-			<br>
-
-		<table border="2">
-			<tr>
+<h1 class="display-3">Historial de ventas</h1>
+    <hr class="sidebar-divider">
+    <a class ="btn btn-primary" href="/comprobante/create" role="button">Crear nuevo comprobante</a>
+    <br><br>
+    <div class="table-responsive">
+        <table class="table table-striped">
+		<tr>
 				<th>ID</th>
 				<th>Categoria</th>
                 <th>Descripcion</th>
@@ -26,5 +24,7 @@
 				<td>{{ $comprobante->monto }}</td>
 			</tr>
 			@endforeach
-		</table>
+        </table>
+    </div>
+		
 @endsection

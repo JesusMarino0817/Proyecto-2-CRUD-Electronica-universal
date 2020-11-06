@@ -18,6 +18,7 @@ class ComprobanteController extends Controller
         return view('comprobantes/comprobantesIndex', compact('comprobantes'));
     }
 
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -112,4 +113,5 @@ class ComprobanteController extends Controller
         $comprobante->delete();
         return redirect()->route('comprobante.index');
     }
+
 }
