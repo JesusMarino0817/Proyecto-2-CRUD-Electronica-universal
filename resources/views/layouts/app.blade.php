@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -15,7 +14,16 @@
   <!-- Custom fonts for this template-->
   <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<!-- Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
+<!-- Styles -->
+<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+@livewireStyles
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.js" defer></script>
   <!-- Custom styles for this template-->
   <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
 
@@ -36,6 +44,8 @@
         </div>
         <div class="sidebar-brand-text mx-3">Electronica Universal</div>
       </a>
+
+     
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
@@ -99,15 +109,19 @@
 
       <!-- Main Content -->
       <div id="content">
-
+      @include ('profile/topbar')
         <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-        </nav>
+        <header class="bg-white shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+        </header>
         <!-- End of Topbar -->
         
         <!-- Begin Page Content -->
         <div class="container-fluid">
-          @yield('contenido')
+        {{ $slot }}
+        
         </div>
         <!-- /.container-fluid -->
 

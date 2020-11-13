@@ -1,6 +1,4 @@
-@extends('layouts.app')
 
-@section('contenido')
 
   <!-- Page Content -->
   <div class="container">
@@ -154,7 +152,3 @@
 
 
 
-
-
-
-@endsection
