@@ -34,6 +34,18 @@ Route::get('/articulos3', function () {
   return view('articulos3');
 });
 
+Route::get('/articulos1User', function () {
+  return view('articulos1User');
+});
+
+Route::get('/articulos2User', function () {
+  return view('articulos2User');
+});
+
+Route::get('/articulos3User', function () {
+  return view('articulos3User');
+});
+
 Route::get('/bienvenida/{nombre}/{apellido?}', function($nombre, $apellido = null) {
   return view('bienvenida', compact('nombre', 'apellido'));
 })->name('bienvenida');

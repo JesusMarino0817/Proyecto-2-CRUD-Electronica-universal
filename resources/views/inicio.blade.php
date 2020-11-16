@@ -1,6 +1,6 @@
-@extends('layouts.app')
-
-@section('contenido')
+<x-app-layout>
+	<x-slot name="header">
+    </x-slot>
 
 <head>
         <meta charset="utf-8" />
@@ -25,7 +25,7 @@
                 <div class="mx-auto text-center">
                     <h1 class="mx-auto my-0 text-uppercase">Electronica Universal</h1>
                     <h2 class="text-white-50 mx-auto mt-2 mb-5">La mejor de la ciudad</h2>
-                    <a class="btn btn-primary js-scroll-trigger" href="articulos1">Ver Productos</a>
+                    <a class="btn btn-primary js-scroll-trigger" href="articulos1User">Ver Productos</a>
                 </div>
             </div>
         </header>
@@ -161,4 +161,5 @@
 </html>
 
 
-@endsection
+</x-app-layout>
+

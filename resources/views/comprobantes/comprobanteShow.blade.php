@@ -1,7 +1,9 @@
-@extends('layouts.app')
+<x-app-layout>
+	<x-slot name="header">
+	<h1 class="display-3">Información del comprobante</h1>
+    </x-slot>
+		
 
-@section('contenido')
-<h1 class="display-3">Información del comprobante</h1>
     <hr class="sidebar-divider">
     <a class="btn btn-primary" role="button" href="{{ route('comprobante.edit', [$comprobante->id]) }}">Editar información del comprobante</a>
     <a class="btn btn-primary" role="button" href="{{ route('comprobante.index') }}">Regresar al historial de comprobantes</a>
@@ -33,7 +35,6 @@
             <button type="submit" class="btn btn-primary">Eliminar Comprobante</button>
         </form>
     </div>
-
-    @endsection
+</x-app-layout>
 
     

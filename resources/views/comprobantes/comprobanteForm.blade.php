@@ -1,6 +1,7 @@
-@extends('layouts.app')
-
-@section('contenido')
+<x-app-layout>
+	<x-slot name="header">
+	<h1 class="display-3">Crear Comprobante</h1>
+    </x-slot>
 		
 		@if ($errors->any())
 			<div class="alert alert-danger">
@@ -11,7 +12,6 @@
 				</ul>
 			</div>
 		@endif
-		<h1>Crear Comprobante</h1>
 		<hr class="sidebar-divider">
 @if(isset($comprobante))
 		<form action="{{ route('comprobante.update', [$comprobante]) }}" method="POST">
@@ -73,4 +73,4 @@
 
 			<button type="submit" class="btn btn-primary">Enviar</button>
 		</form>
-@endsection
+</x-app-layout>

@@ -1,9 +1,9 @@
-@extends('layouts.app')
+<x-app-layout>
+	<x-slot name="header">
+	<h1 class="display-3">Historial de ventas</h1>
+    </x-slot>
 
 
-@section('contenido')
-
-<h1 class="display-3">Historial de ventas</h1>
     <hr class="sidebar-divider">
     <a class ="btn btn-primary" href="/comprobante/create" role="button">Crear nuevo comprobante</a>
     <br><br>
@@ -26,5 +26,4 @@
 			@endforeach
         </table>
     </div>
-		
-@endsection
+</x-x-app-layout>
