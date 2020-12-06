@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ComprobanteController;
+use App\Http\Controllers\InventarioController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -50,8 +52,12 @@ Route::get('/bienvenida/{nombre}/{apellido?}', function($nombre, $apellido = nul
   return view('bienvenida', compact('nombre', 'apellido'));
 })->name('bienvenida');
 
+Route::resource('inventario', InventarioController::class)->middleware(['auth:sanctum']);
+
 Route::resource('comprobante', ComprobanteController::class)->middleware(['auth:sanctum']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
