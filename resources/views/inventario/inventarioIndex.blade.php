@@ -16,6 +16,7 @@
                 <th>Precio para clientes</th>
                 <th>Cantidad disponible</th>
                 <th>Descripción</th>
+                
             </tr>
             @foreach ($inventario as $inv)
                 <tr>
@@ -29,5 +30,39 @@
                 </tr>
             @endforeach
         </table>
-    </div>
+        </div>
+        <br>
+        <br>
+        <div>
+        <table class="table table-striped">
+            <tr>
+                <th>Nombre del producto</th>
+                <th>Tipo de refaccion que utiliza</th>
+                <th>Nombre de la pieza</th>
+                <th>PIezas disponibles</th>
+
+            </tr>
+            @foreach ($inventario as $inv)
+            <tr>
+                    <td><a href="/inventario/{{ $inv->id }}">{{ $inv->nombre }}</a></td>
+                    <td>
+                        @foreach ($inv->refaccions as $refaccion)
+                           {{ $refaccion->tipo}} <br>
+                        @endforeach
+                    </td>
+                    <td>
+                        @foreach ($inv->refaccions as $refaccion)
+                           {{ $refaccion->nombre}} <br>
+                        @endforeach
+                    </td>
+                    <td>
+                        @foreach ($inv->refaccions as $refaccion)
+                           {{ $refaccion->cantidad}} <br>
+                        @endforeach
+                    </td>
+            </tr>
+            @endforeach
+        </table>
+        </div>
+    
 </x-x-app-layout>

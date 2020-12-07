@@ -30,7 +30,7 @@
             <select name="categoria_id" style="width: 400px; heigth: 15px">
                 @foreach ($categorias as $categoria)
                 <!--<option value="{{ $categoria->id }}">{{ $categoria->categoria }} </option>-->
-                <option value="{{ $categoria->id }}" {{ isset($categoria) && $inventario->categoria->categoria == $categoria->categoria ? 'selected' : ''}}>{{ $categoria->categoria }}</option>
+                <option value="{{ $categoria->id }}" {{ isset($inventario->categoria->categoria) && $inventario->categoria->categoria == $categoria->categoria ? 'selected' : ''}}>{{ $categoria->categoria }}</option>
                 
                 @endforeach
                 
@@ -53,8 +53,20 @@
         </div>
         <div class="form-group">
             <label for="descripcion" class="col-lg-3">Descripcion del producto: </label>
-            <textarea name="descripcion"cols="47" rows="10"">{{ old('descripcion') ?? $inventario->descripcion ?? ''}}</textarea><br>
+            <textarea name="descripcion"cols="47" rows="10">{{ old('descripcion') ?? $inventario->descripcion ?? ''}}</textarea><br>
         </div>
+
+        <label for="refaccion" class="col-lg-3">Refaccion: </label>
+        <select name="refaccion_id[]" style="width: 400px; heigth: 15px" multiple >
+                @foreach ($refaccions as $refaccion)
+                
+                <option value="{{ $refaccion->id }}" {{ isset($refaccion) && $refaccion->tipo == $refaccion->tipo ? 'selected' : ''}}>{{ $refaccion->tipo }}</option>
+                
+                @endforeach
+                
+        </select><br>
+    
+
         <button type="submit" class="btn btn-primary col-3">Enviar</button>
         <br>
     </form>

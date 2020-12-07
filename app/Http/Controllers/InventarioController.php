@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categoria;
+use App\Models\Refaccion;
 use App\Models\Inventario;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,8 @@ class InventarioController extends Controller
     public function create()
     {
         $categorias = Categoria::all();
-        return view('/inventario/inventarioForm', compact('categorias'));
+        $refaccions = Refaccion::all();
+        return view('/inventario/inventarioForm', compact('categorias', 'refaccions'));
     }
 
     /**
@@ -57,6 +59,8 @@ class InventarioController extends Controller
         $inventario->cantidad = $request->cantidad;
         $inventario->descripcion = $request->descripcion;
         $inventario->save();
+        
+        $inventario->refaccions()->attach($request->refaccion_id);
 
         //Inventario::create($request->all());
         return redirect('/inventario');
@@ -82,7 +86,8 @@ class InventarioController extends Controller
     public function edit(Inventario $inventario)
     {
         $categorias = Categoria::all();
-        return view('/inventario/inventarioForm', compact('inventario', 'categorias'));
+        $refaccions = Refaccion::all();
+        return view('/inventario/inventarioForm', compact('inventario', 'categorias','refaccions'));
     }
 
     /**
@@ -103,7 +108,10 @@ class InventarioController extends Controller
         ]);
         $request->merge([
             'descripcion' => $request->descripcion ?? '']);
-        Inventario::where('id', $inventario->id)->update($request->except('_method','_token'));
+        Inventario::where('id', $inventario->id)->update($request->except('_method','_token','refaccion_id'));
+
+        $inventario->refaccions()->sync($request->refaccion_id);
+
         return redirect()->route('inventario.index');
     }
 

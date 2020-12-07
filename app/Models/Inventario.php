@@ -15,6 +15,10 @@ class Inventario extends Model
         return $this->belongsTo(Categoria::class);
     }
 
+    public function refaccions(){
+        return $this->belongsToMany(Refaccion::class);
+    }
+
 
 
 }
