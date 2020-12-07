@@ -2,6 +2,7 @@
 	<x-slot name="header">
 	<h1 class="display-3">Formulario</h1>
     </x-slot>
+    
 
 @if ($errors->any())
     <div>
@@ -60,8 +61,9 @@
         <select name="refaccion_id[]" style="width: 400px; heigth: 15px" multiple >
                 @foreach ($refaccions as $refaccion)
                 
-                <option value="{{ $refaccion->id }}" {{ isset($refaccion) && $refaccion->tipo == $refaccion->tipo ? 'selected' : ''}}>{{ $refaccion->tipo }}</option>
-                
+                <option value="{{ $refaccion->id }}" {{ isset($refaccion) && $refaccion->nombre == $refaccion->nombre ? 'selected' : ''}}>{{ $refaccion->nombre }}</option>
+               
+
                 @endforeach
                 
         </select><br>

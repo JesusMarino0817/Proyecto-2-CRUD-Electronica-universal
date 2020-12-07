@@ -52,12 +52,17 @@ Route::get('/bienvenida/{nombre}/{apellido?}', function($nombre, $apellido = nul
   return view('bienvenida', compact('nombre', 'apellido'));
 })->name('bienvenida');
 
-Route::resource('inventario', InventarioController::class)->middleware(['auth:sanctum']);
+Route::middleware('auth')->group(function(){
+  Route::resource('inventario', InventarioController::class);
+  Route::resource('comprobante', ComprobanteController::class);
+});
 
-Route::resource('comprobante', ComprobanteController::class)->middleware(['auth:sanctum']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/inicio', function () {
+  return view('inicio');
+})->name('inicio');
 
 

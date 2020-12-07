@@ -6,9 +6,17 @@ use App\Models\Categoria;
 use App\Models\Refaccion;
 use App\Models\Inventario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Middleware\EsMayor;
 
 class InventarioController extends Controller
 {
+    public function __construct(){
+       
+        $this->middleware('es-mayor');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
