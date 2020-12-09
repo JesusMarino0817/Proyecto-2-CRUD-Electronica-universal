@@ -17,7 +17,7 @@ class EsMayor
     public function handle(Request $request, Closure $next)
     {
         if( \Auth::user()->id > 1){
-            return redirect('/inicio')->with(['mensaje'=> 'Solo el administrador (ID 1) tiene acceso al inventario']);
+            return redirect('/inicio')->with(['mensaje'=> 'Solo el administrador (ID 1) tiene acceso al inventario', 'alert-type' => 'alert-danger']);
         }
         return $next($request);
     }

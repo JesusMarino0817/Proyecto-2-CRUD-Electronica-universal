@@ -110,6 +110,7 @@
 
       <!-- Main Content -->
       <div id="content">
+      
       @livewire('navigation-dropdown')
         <!-- Topbar -->
         <header class="bg-white shadow">
@@ -121,6 +122,7 @@
         
         <!-- Begin Page Content -->
         <div class="container-fluid">
+        @include('partials.mensaje')
         {{ $slot }}
         
         </div>

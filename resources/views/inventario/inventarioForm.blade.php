@@ -24,11 +24,11 @@
         @csrf
         <div class="form-group">
             <label for="nombre" class="col-lg-3">Nombre del producto:</label>
-            <input type="text" name="nombre" value="{{ old('nombre') ?? $inventario->nombre ?? ''}}" style="width: 400px; heigth: 15px"><br>
+            <input type="text" name="nombre" pattern="[\w\s-]{5,20}"  required value="{{ old('nombre') ?? $inventario->nombre ?? ''}}" style="width: 400px; heigth: 15px"><br>
         </div>
         <div class="form-group text-">
             <label for="categoria" class="col-lg-3">Categoria: </label>
-            <select name="categoria_id" style="width: 400px; heigth: 15px">
+            <select name="categoria_id" style="width: 400px; heigth: 15px" required>
                 @foreach ($categorias as $categoria)
                 <!--<option value="{{ $categoria->id }}">{{ $categoria->categoria }} </option>-->
                 <option value="{{ $categoria->id }}" {{ isset($inventario->categoria->categoria) && $inventario->categoria->categoria == $categoria->categoria ? 'selected' : ''}}>{{ $categoria->categoria }}</option>
@@ -42,16 +42,23 @@
         </div>
         <div class="form-group">
             <label for="precio" class="col-lg-3">Precio: </label>
-            <input type="number" name="precio" value="{{ old('precio') ?? $inventario->precio ?? ''}}" style="width: 400px; heigth: 15px"><br>
+            <input type="number" name="precio" pattern="^[0-9]{1,5}(\.[0-9]{0,2})?$" required value="{{ old('precio') ?? $inventario->precio ?? ''}}" style="width: 400px; heigth: 15px"><br>
         </div>
         <div class="form-group">
-            <label for="precio_cliente" class="col-lg-3">Preco para cliente: </label>
-            <input type="number" name="precio_cliente" value="{{ old('precio_cliente') ?? $inventario->precio_cliente ?? ''}}" style="width: 400px; heigth: 15px"><br>
+            <label for="precio_cliente" class="col-lg-3">Precio para cliente: </label>
+            <input type="number" name="precio_cliente" pattern="^[0-9]{1,5}(\.[0-9]{0,2})?$" value="{{ old('precio_cliente') ?? $inventario->precio_cliente ?? ''}}" style="width: 400px; heigth: 15px"><br>
         </div>
         <div class="form-group">
             <label for="cantidad" class="col-lg-3">Cantidad: </label>
-            <input type="number" name="cantidad" value="{{ old('cantidad') ?? $inventario->cantidad ?? ''}}" style="width: 400px; heigth: 15px"><br>
+            <input type="number" name="cantidad" id="cantidad" value="{{ old('cantidad') ?? $inventario->cantidad ?? ''}}" style="width: 400px; heigth: 15px"><br>
         </div>
+        <script>
+            var input=  document.getElementById('cantidad');
+            input.addEventListener('input',function(){
+            if (this.value.length > 3) 
+                this.value = this.value.slice(1,3); 
+            })
+        </script>
         <div class="form-group">
             <label for="descripcion" class="col-lg-3">Descripcion del producto: </label>
             <textarea name="descripcion"cols="47" rows="10">{{ old('descripcion') ?? $inventario->descripcion ?? ''}}</textarea><br>

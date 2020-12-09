@@ -55,7 +55,11 @@ class ComprobanteController extends Controller
         Comprobante::create($request->all());
     
         // Redireccion
-        return redirect('/comprobante');
+        return redirect('/comprobante')
+        ->with([
+            'mensaje' => 'Comprobante creado con éxito!',
+            'alert-type' => 'alert-success',
+        ]);
     }
 
     /**
@@ -99,7 +103,11 @@ class ComprobanteController extends Controller
         
         Comprobante::where('id', $comprobante->id)->update($request->except('_method', '_token'));
         
-        return redirect()->route('comprobante.show', [$comprobante]);
+        return redirect()->route('comprobante.show', [$comprobante])
+            ->with([
+                'mensaje' => 'Comprobante actualizado con éxito!',
+                'alert-type' => 'alert-success',
+            ]);
     }
 
     /**
@@ -111,7 +119,11 @@ class ComprobanteController extends Controller
     public function destroy(Comprobante $comprobante)
     {
         $comprobante->delete();
-        return redirect()->route('comprobante.index');
+        return redirect()->route('comprobante.index')
+        ->with([
+            'mensaje' => 'Comprobante ha sido eliminado!',
+            'alert-type' => 'alert-danger',
+        ]);
     }
 
 }

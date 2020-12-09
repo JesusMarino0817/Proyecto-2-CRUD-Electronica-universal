@@ -71,7 +71,11 @@ class InventarioController extends Controller
         $inventario->refaccions()->attach($request->refaccion_id);
 
         //Inventario::create($request->all());
-        return redirect('/inventario');
+        return redirect('/inventario')
+        ->with([
+            'mensaje' => 'El articulo ha sido agregado con éxito del inventario',
+            'alert-type' => 'alert-success',
+        ]);
     }
 
     /**
@@ -120,7 +124,11 @@ class InventarioController extends Controller
 
         $inventario->refaccions()->sync($request->refaccion_id);
 
-        return redirect()->route('inventario.index');
+        return redirect()->route('inventario.index')
+        ->with([
+            'mensaje' => 'El articulo ha sido actualizado con éxito del inventario',
+            'alert-type' => 'alert-success',
+        ]);
     }
 
     /**
@@ -132,6 +140,9 @@ class InventarioController extends Controller
     public function destroy(Inventario $inventario)
     {
         $inventario->delete();
-        return redirect()->route('inventario.index');
+        return redirect()->route('inventario.index')->with([
+            'mensaje' => 'El articulo ha sido eliminado del inventario!',
+            'alert-type' => 'alert-danger',
+        ]);
     }
 }
