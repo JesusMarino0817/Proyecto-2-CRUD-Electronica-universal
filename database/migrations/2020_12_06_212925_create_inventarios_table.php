@@ -22,6 +22,7 @@ class CreateInventariosTable extends Migration
             $table->decimal('precio_cliente');
             $table->integer('cantidad');
             $table->string('descripcion');
+            $table->softDeletes();
         });
     }
 

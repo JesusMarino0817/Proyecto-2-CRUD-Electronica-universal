@@ -22,6 +22,7 @@ class CreateComprobantesTable extends Migration
             $table->text('descripcion');
             $table->bigInteger('monto');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

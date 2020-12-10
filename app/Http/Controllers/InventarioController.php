@@ -24,7 +24,7 @@ class InventarioController extends Controller
      */
     public function index()
     {
-        $inventario = Inventario::get();
+        $inventario = Inventario::with('categoria', 'refaccions')->get();
         
         return view('/inventario/inventarioIndex', compact('inventario'));
     }
