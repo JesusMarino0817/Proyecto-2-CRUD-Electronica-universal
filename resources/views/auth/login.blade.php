@@ -1,5 +1,7 @@
 <x-guest-layout>
+<img class="Fondo" src="https://peritojudicial.com/content/images/2019/10/Electricidad-y-Electronica---Perito-Industrial.jpg"/>
     <x-jet-authentication-card>
+   
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
         </x-slot>

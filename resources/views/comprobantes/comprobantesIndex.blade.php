@@ -14,6 +14,7 @@
 				<th>Categoria</th>
                 <th>Descripcion</th>
                 <th>Monto</th>
+				<th>Fecha de entrega</th>
 			</tr> 
 
 			@foreach ($comprobantes as $comprobante)
@@ -22,6 +23,7 @@
 				<td><a href="/comprobante/{{ $comprobante->id }}">{{ $comprobante->categoria }}</a></td>
 				<td>{{ $comprobante->descripcion }}</td>
 				<td>{{ $comprobante->monto }}</td>
+				<td>{{ fecha_formato($comprobante->fecha_entrega)}}</td>
 			</tr>
 			@endforeach
         </table>
