@@ -59,7 +59,7 @@
 
 			<div class="form-group">
 			<label for="descripcion" class="col-lg-2">Descripción:</label>
-			<textarea name="descripcion" >{{ old('descripcion') ?? $comprobante->descripcion ?? '' }} </textarea><br>
+			<textarea name="descripcion" required >{{ old('descripcion') ?? $comprobante->descripcion ?? '' }} </textarea><br>
 			</div>
 
 			<div class="form-group">

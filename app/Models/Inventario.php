@@ -21,6 +21,24 @@ class Inventario extends Model
         return $this->belongsToMany(Refaccion::class);
     }
 
+    public function getNombreAttribute($value)
+    {
+        return ucwords(strtolower($value));
+    }
 
+    public function setDescripcionAttribute($value)
+    {
+        $this->attributes['descripcion'] = strtoupper($value);
+    }
+
+    public function getDescripcionAttribute($value)
+    {
+        return ucwords(strtolower($value));
+    }
+
+    public function getGananciaPorProductoAttribute(){
+        return $this->precio_cliente - $this->precio;
+
+    }
 
 }

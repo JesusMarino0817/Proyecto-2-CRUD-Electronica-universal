@@ -12,4 +12,10 @@ class Comprobante extends Model
     use SoftDeletes;
     protected $table = "comprobantes";
     protected $fillable = ['categoria', 'nombre_cliente', 'fecha_entrega', 'celular_cliente', 'descripcion', 'monto'];
+
+
+    public function getCategoriaAttribute($value)
+    {
+        return strtoupper($value);
+    }
 }

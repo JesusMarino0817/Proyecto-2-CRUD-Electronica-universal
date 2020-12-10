@@ -61,7 +61,7 @@
         </script>
         <div class="form-group">
             <label for="descripcion" class="col-lg-3">Descripcion del producto: </label>
-            <textarea name="descripcion"cols="47" rows="10">{{ old('descripcion') ?? $inventario->descripcion ?? ''}}</textarea><br>
+            <textarea required name="descripcion"cols="47" rows="10">{{ old('descripcion') ?? $inventario->descripcion ?? ''}}</textarea><br>
         </div>
 
         <label for="refaccion" class="col-lg-3">Refaccion: </label>

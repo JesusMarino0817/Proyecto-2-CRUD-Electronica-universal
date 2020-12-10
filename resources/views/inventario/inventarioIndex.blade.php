@@ -16,6 +16,8 @@
                 <th>Precio para clientes</th>
                 <th>Cantidad disponible</th>
                 <th>Descripción</th>
+                <th>Ganancia por producto</th>
+
                 
             </tr>
             @foreach ($inventario as $inv)
@@ -27,6 +29,8 @@
                     <td>{{ $inv->precio_cliente }}</td>
                     <td>{{ $inv->cantidad }}</td>
                     <td>{{ $inv->descripcion }}</td>
+                    <td>{{ $inv->ganancia_por_producto }}</td>
+
                 </tr>
             @endforeach
         </table>
