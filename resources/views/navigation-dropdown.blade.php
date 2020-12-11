@@ -4,7 +4,12 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                
-               
+               <div class="flex-shrink-0 flex items-center">
+                    <a>
+                    Impossible is Nothing.
+                    </a>
+                </div>
+
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -30,11 +35,11 @@
                     <x-slot name="content">
                         <!-- Account Management -->
                         <div class="block px-4 py-2 text-xs text-gray-400">
-                            {{ __('Manage Account') }}
+                            {{ __('Administrar cuenta') }}
                         </div>
 
                         <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                            {{ __('Profile') }}
+                            {{ __('Perfil') }}
                         </x-jet-dropdown-link>
 
                         @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -83,7 +88,7 @@
                             <x-jet-dropdown-link href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
                                                             this.closest('form').submit();">
-                                {{ __('Logout') }}
+                                {{ __('Cerrar sesión') }}
                             </x-jet-dropdown-link>
                         </form>
                     </x-slot>
