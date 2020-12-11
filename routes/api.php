@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Models\Comprobante;
 
+use App\Models\Inventario;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -26,4 +28,10 @@ Route::get('comprobante', function() {
     return Comprobante::all();
 });
 
+
+Route::get('inventario', function() {
+    // If the Content-Type and Accept headers are set to 'application/json',
+    // this will return a JSON structure. This will be cleaned up later.
+    return Inventario::all();
+});
 
